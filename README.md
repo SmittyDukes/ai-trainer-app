@@ -1,27 +1,28 @@
 # AI Trainer API 
-## An API that generates structured, explainable basketball training sessions from a player profile and focus area.
+_An API that generates structured, explainable basketball training sessions from a player profile and focus area.__
 
-# What It Does?
--Uses information provided by player or coach, it creates a custom workout session. The API uses name, age, skill level, focus area and duration. 
-Skill levels are "beginner", "intermediate", and "advanced". Length of sessions can be between 60-120 minutes. Individual drills can also be selected, if a player/coach wants that option.
+# What It Does
+- Uses information provided by player or coach, it creates a custom workout session. The API uses name, age, skill level, focus area and duration. 
+Skill levels are "beginner", "intermediate", and "advanced". Length of sessions can be between 60-120 minutes.
 
-# How to run it?
-- clone
-- create venv
-- activate
-- In terminal: pip install -r requirements.txt, uvicorn main:app --reload
+# How to run it
+- clone: git clone https://github.com/SmittyDukes/ai-trainer-app.git
+- create venv: python -m venv .venv
+- activate: source .venv/bin/activate --Windows version-- .venv\Scripts\activate
+- In terminal: pip install -r requirements.txt 
+- uvicorn main:app --reload
 - Open: http://127.0.0.1:8000/docs
 
 
 # Request and Response
--Request: {
+- ```Request: {
   "name": "Smitty",
   "age": 16,
   "skill_level": "advanced",
   "focus_area": "shooting",
   "session_duration_minutes": 60
-}
--Response: [
+}```
+- Response: ```[
   {
     "name": "Warm-up",
     "duration": 10,
@@ -52,10 +53,10 @@ Skill levels are "beginner", "intermediate", and "advanced". Length of sessions 
     "duration": 5,
     "reason": null
   }
-]
+]```
 
-# How it Works?
+# How it Works
 - Request for API to generate session
-- The model parses and validates the request to make sure it is valid before inference.
+- The model parses and validates the request to make sure it is valid before decision engine runs.
 - Based on input the decision engine filters through all the drills to fill session with appropriate drills that fill the duration requested
 - The response model shapes a clean output and sends back to the user.
